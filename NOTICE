@@ -1,0 +1,29 @@
+OpenQR
+Copyright (c) 2026 Sam Moreton
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License v3.0 (AGPL-3.0) as published
+by the Free Software Foundation. See the LICENSE file for the full text.
+
+------------------------------------------------------------------------------
+Dual licensing
+------------------------------------------------------------------------------
+The copyright holder (Sam Moreton) holds sole copyright to the original work in
+this repository and may offer it under separate commercial terms. If the
+AGPL-3.0 does not suit your use case (for example, you wish to use OpenQR in a
+closed-source product or network service without the AGPL's source-disclosure
+obligations), contact the author to discuss a commercial license.
+
+------------------------------------------------------------------------------
+Third-party components
+------------------------------------------------------------------------------
+This software depends on, but does not include the source of, the following
+third-party packages, each under its own license (see node_modules for full
+texts):
+
+- qr-code-styling  — MIT License — Copyright (c) Denys Kozak
+  https://github.com/kozakdenys/qr-code-styling
+- Next.js, React, Radix UI, lucide-react, zustand, leaflet, react-leaflet,
+  jspdf, svg2pdf.js, Tailwind CSS — see their respective licenses.
+
+Poppins font — SIL Open Font License 1.1.

@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.75rem;
+
+  /* OpenQR brand — light */
+  --background: #ffffff;
+  --foreground: #232e3a; /* ink-700 */
+
+  --card: #ffffff;
+  --card-foreground: #232e3a;
+
+  --popover: #ffffff;
+  --popover-foreground: #232e3a;
+
+  --primary: #07b1b0; /* teal-500 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f6f8; /* cloud-100 */
+  --secondary-foreground: #232e3a;
+
+  --muted: #f4f6f8;
+  --muted-foreground: #5a6573; /* ink-500 */
+
+  --accent: #e6f7f7; /* teal-50 */
+  --accent-foreground: #232e3a;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #e2e7ec;
+  --input: #e2e7ec;
+  --ring: #2bc4c3; /* teal-400 */
+}
+
+.dark {
+  --background: #10171f; /* ink-900 */
+  --foreground: #e8edf2;
+
+  --card: #1a2430; /* ink-800 */
+  --card-foreground: #e8edf2;
+
+  --popover: #1a2430;
+  --popover-foreground: #e8edf2;
+
+  --primary: #2bc4c3; /* teal-400 pops on dark */
+  --primary-foreground: #10171f;
+
+  --secondary: #1a2430;
+  --secondary-foreground: #e8edf2;
+
+  --muted: #1a2430;
+  --muted-foreground: #aeb9c4; /* slate-300 */
+
+  --accent: #0e2a2a;
+  --accent-foreground: #e8edf2;
+
+  --destructive: #f87171;
+  --destructive-foreground: #10171f;
+
+  --border: #2a3744;
+  --input: #2a3744;
+  --ring: #2bc4c3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.3s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 0.25s ease both;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.pop-in {
+  animation: popIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes radixIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes radixOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+@keyframes overlayShow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes overlayHide {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes sheetIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes sheetOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

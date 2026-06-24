@@ -1,0 +1,37 @@
+import { effectiveEc, type QrStyle } from "@/lib/qr/options";
+
+const BYTE_CAPACITY = { L: 2953, M: 2331, Q: 1663, H: 1273 } as const;
+
+function luminance(hex: string): number {
+  const m = hex.replace("#", "");
+  const full = m.length === 3 ? m.split("").map((c) => c + c).join("") : m;
+  const n = parseInt(full, 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => {
+    const s = v / 255;
+    return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function contrastRatio(a: string, b: string): number {
+  const l1 = luminance(a);
+  const l2 = luminance(b);
+  const [hi, lo] = l1 > l2 ? [l1, l2] : [l2, l1];
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+export function getWarnings(data: string, style: QrStyle): string[] {
+  const warnings: string[] = [];
+  const ec = effectiveEc(style);
+  const len = new TextEncoder().encode(data).length;
+  if (len > BYTE_CAPACITY[ec]) {
+    warnings.push("Too much data for this error-correction level — shorten the content or lower correction.");
+  }
+  if (style.logo && style.logoSize > 0.4 && ec !== "H") {
+    warnings.push("Large logo — set error correction to H, or it may not scan reliably.");
+  }
+  if (!style.transparent && contrastRatio(style.fgColor, style.bgColor) < 2.5) {
+    warnings.push("Low contrast between colours — scanners may struggle. Use a darker foreground on a light background.");
+  }
+  return warnings;
+}

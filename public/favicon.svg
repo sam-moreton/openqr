@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="OpenQR">
+  <rect width="240" height="240" rx="50" fill="#1A2430"/>
+  <g fill="none" stroke="#07B1B0" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48,104 L48,80 Q48,50 78,50 L102,50"/>
+    <path d="M138,50 L162,50 Q192,50 192,80 L192,104"/>
+    <path d="M192,138 L192,162 Q192,192 162,192 L138,192"/>
+    <path d="M102,192 L78,192 Q48,192 48,162 L48,138"/>
+  </g>
+  <g fill="#FFFFFF">
+    <rect x="84" y="84" width="32" height="32" rx="5" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+    <rect x="94" y="94" width="12" height="12" rx="2"/>
+    <rect x="138" y="84" width="32" height="32" rx="5" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+    <rect x="148" y="94" width="12" height="12" rx="2"/>
+    <rect x="84" y="138" width="32" height="32" rx="5" fill="none" stroke="#FFFFFF" stroke-width="9"/>
+    <rect x="94" y="148" width="12" height="12" rx="2"/>
+    <rect x="140" y="140" width="13" height="13" rx="2"/>
+    <rect x="161" y="140" width="13" height="13" rx="2"/>
+    <rect x="150.5" y="150.5" width="13" height="13" rx="2"/>
+    <rect x="140" y="161" width="13" height="13" rx="2"/>
+    <rect x="161" y="161" width="13" height="13" rx="2"/>
+  </g>
+</svg>
